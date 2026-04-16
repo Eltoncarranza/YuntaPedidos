@@ -17,23 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j99-HL-fa0">
-                                <rect key="frame" x="178" y="863" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKY-oK-Csz">
-                                <rect key="frame" x="51" y="863" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5q3-HS-zoK">
-                                <rect key="frame" x="316" y="847.66666666666663" width="75" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="capsule"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-GK-LLg">
                                 <rect key="frame" x="0.0" y="103" width="430" height="795"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,21 +51,63 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lO-7F-bU7">
+                                <rect key="frame" x="340" y="842" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ANT-Rd-ikL"/>
+                                    <constraint firstAttribute="width" constant="60" id="FMm-Ls-Tl5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaY-Cq-SU2">
+                                <rect key="frame" x="340" y="842" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="OIp-cB-fZM"/>
+                                    <constraint firstAttribute="height" constant="60" id="WvI-NU-VF0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIw-6B-MaA">
+                                <rect key="frame" x="340" y="842" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="r2X-eS-HM2"/>
+                                    <constraint firstAttribute="height" constant="60" id="rYs-Mz-wZ3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O36-aK-y5S">
+                                <rect key="frame" x="340" y="842" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Iq6-iL-gbb"/>
+                                    <constraint firstAttribute="height" constant="60" id="MgA-lV-fwM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fWc-HV-Osq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mIw-6B-MaA" secondAttribute="bottom" constant="30" id="4FE-8f-vtH"/>
+                            <constraint firstItem="fWc-HV-Osq" firstAttribute="trailing" secondItem="LaY-Cq-SU2" secondAttribute="trailing" constant="30" id="5l6-qk-gp0"/>
                             <constraint firstItem="4nf-GK-LLg" firstAttribute="leading" secondItem="fWc-HV-Osq" secondAttribute="leading" id="7OH-iy-MRx"/>
-                            <constraint firstItem="fWc-HV-Osq" firstAttribute="trailing" secondItem="5q3-HS-zoK" secondAttribute="trailing" constant="39" id="M0q-Mw-Ywr"/>
+                            <constraint firstAttribute="bottom" secondItem="O36-aK-y5S" secondAttribute="bottom" constant="30" id="8oM-1h-hxL"/>
+                            <constraint firstAttribute="trailing" secondItem="7lO-7F-bU7" secondAttribute="trailing" constant="30" id="IXd-Fo-lWg"/>
                             <constraint firstItem="fWc-HV-Osq" firstAttribute="bottom" secondItem="4nf-GK-LLg" secondAttribute="bottom" id="OGi-oA-Umt"/>
-                            <constraint firstAttribute="bottom" secondItem="5q3-HS-zoK" secondAttribute="bottom" constant="50" id="azO-YS-C9e"/>
+                            <constraint firstAttribute="bottom" secondItem="LaY-Cq-SU2" secondAttribute="bottom" constant="30" id="SsY-Vg-PnD"/>
+                            <constraint firstAttribute="bottom" secondItem="7lO-7F-bU7" secondAttribute="bottom" constant="30" id="aCd-gT-NpF"/>
+                            <constraint firstItem="fWc-HV-Osq" firstAttribute="trailing" secondItem="mIw-6B-MaA" secondAttribute="trailing" constant="30" id="fQe-M5-n6O"/>
+                            <constraint firstItem="fWc-HV-Osq" firstAttribute="trailing" secondItem="O36-aK-y5S" secondAttribute="trailing" constant="30" id="rQg-AJ-zon"/>
                             <constraint firstItem="fWc-HV-Osq" firstAttribute="trailing" secondItem="4nf-GK-LLg" secondAttribute="trailing" id="vWh-WC-7U4"/>
                             <constraint firstItem="4nf-GK-LLg" firstAttribute="top" secondItem="fWc-HV-Osq" secondAttribute="top" id="yJg-Pl-0Ab"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Soporte" style="editor" id="fVm-vy-plj"/>
                     <connections>
-                        <outlet property="SuportTableView" destination="4nf-GK-LLg" id="t95-IJ-aSW"/>
+                        <outlet property="SuportTableView" destination="4nf-GK-LLg" id="Qu5-cZ-NSf"/>
+                        <outlet property="viewChat" destination="LaY-Cq-SU2" id="u9H-Ux-MA5"/>
+                        <outlet property="viewPrincipal" destination="O36-aK-y5S" id="fl5-OO-gLn"/>
+                        <outlet property="viewReportar" destination="7lO-7F-bU7" id="2V4-w1-LMZ"/>
+                        <outlet property="viewWhatsapp" destination="mIw-6B-MaA" id="gAK-tK-OQ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUy-tl-aMy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
