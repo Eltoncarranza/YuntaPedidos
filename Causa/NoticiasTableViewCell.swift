@@ -1,23 +1,19 @@
-//
-//  NoticiasTableViewCell.swift
-//  Causa
-//
-//  Created by Pi6u89 on 24/04/26.
-//
-
 import UIKit
 
-class NoticiasTableViewCell: UITableViewCell {
-
+class NoticiaTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var imgNoticia: UIImageView!
+    @IBOutlet weak var lblTitulo: UILabel!
+    @IBOutlet weak var lblDescripcion: UILabel!
+    @IBOutlet weak var lblFecha: UILabel!
+    @IBOutlet weak var viewCategoriaFondo: UIView!
+    @IBOutlet weak var lblCategoriaTexto: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        self.backgroundColor = .clear
+        
+        viewCategoriaFondo.layer.cornerRadius = 10
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

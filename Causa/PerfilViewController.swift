@@ -1,89 +1,83 @@
-//
-//  PerfilViewController.swift
-//  Causa
-//
-//  Created by Pi6u89 on 23/04/26.
-//
-
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class PerfilViewController: UITableViewController {
 
+    // Aquí está el cable que acabas de conectar
+    @IBOutlet weak var lblNombreUsuario: UILabel!
+    
+    // Conexión a tu base de datos
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.title = "Mi Perfil"
+        
+        // Llamamos a la función para buscar tu nombre
+        obtenerNombreDeFirebase()
+    }
+    
+    // MARK: - 1. Traer datos de Firebase
+    func obtenerNombreDeFirebase() {
+        // Obtenemos el ID del usuario actual
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        // Buscamos su documento en la colección "usuarios"
+        db.collection("usuarios").document(uid).getDocument { (document, error) in
+            if let doc = document, doc.exists {
+                // Sacamos el nombre y lo ponemos en la pantalla
+                let nombre = doc.data()?["nombre"] as? String ?? "Usuario"
+                
+                DispatchQueue.main.async {
+                    self.lblNombreUsuario.text = nombre
+                }
+            }
+        }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    // MARK: - 2. Acciones al tocar las filas
+    // Esta función detecta automáticamente en qué fila de la tabla haces clic
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Si tocas la Fila 3 (Cerrar Sesión). Recuerda que en código se empieza a contar desde 0, 1, 2.
+        if indexPath.row == 2 {
+            mostrarAlertaCerrarSesion()
+        }
+        
+        // Quita la selección gris para que se vea bonito
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    // MARK: - 3. Alerta y Cerrar Sesión
+    func mostrarAlertaCerrarSesion() {
+        let alerta = UIAlertController(title: "Cerrar Sesión", message: "¿Estás seguro de que quieres salir?", preferredStyle: .actionSheet)
+        
+        // Botón rojo de confirmación
+        let accionSalir = UIAlertAction(title: "Salir", style: .destructive) { _ in
+            self.ejecutarLogout()
+        }
+        
+        // Botón de cancelar
+        let accionCancelar = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        alerta.addAction(accionSalir)
+        alerta.addAction(accionCancelar)
+        
+        present(alerta, animated: true)
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func ejecutarLogout() {
+        do {
+            // Firebase cierra la sesión
+            try Auth.auth().signOut()
+            
+            // Te regresa a la pantalla de Login (ajusta esto si usas un Navigation Controller)
+            self.dismiss(animated: true, completion: nil)
+            
+        } catch {
+            print("Hubo un problema cerrando la sesión.")
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

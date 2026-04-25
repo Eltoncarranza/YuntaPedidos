@@ -1,8 +1,8 @@
-//
-//  Producto.swift
-//  Causa
-//
-//  Created by Pi6u89 on 24/04/26.
-//
-
 import Foundation
+
+struct Producto {
+    let id: String
+    let nombre: String
+    let precio: Double
+    let nombreImagen: String
+}

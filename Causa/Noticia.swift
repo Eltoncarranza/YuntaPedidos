@@ -1,8 +1,9 @@
-//
-//  Noticia.swift
-//  Causa
-//
-//  Created by Pi6u89 on 24/04/26.
-//
-
 import Foundation
+
+struct Noticia {
+    let titulo: String
+    let descripcion: String
+    let categoria: String
+    let fecha: String
+    let nombreImagen: String
+}

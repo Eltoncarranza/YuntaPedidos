@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,22 +12,20 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChatGPT Image 1 abr 2026, 08_29_12 a.m. 1" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-c8-bhF">
-                                <rect key="frame" x="-153.66666666666666" y="-24" width="700.33333333333337" height="900"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="900" id="Pjs-Se-Ny8"/>
-                                    <constraint firstAttribute="width" constant="700" id="ekR-Cw-YAj"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ecoJanco" translatesAutoresizingMaskIntoConstraints="NO" id="Pjh-XP-iQe">
+                                <rect key="frame" x="100" y="369" width="230" height="179"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96065515280000002" green="0.9645751119" blue="0.97291535139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zLn-c8-bhF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dIg-60-dBg"/>
-                            <constraint firstItem="zLn-c8-bhF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m9w-hV-TiO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pjh-XP-iQe" secondAttribute="trailing" constant="100" id="72V-u6-HUl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pjh-XP-iQe" secondAttribute="bottom" constant="350" id="pfI-w6-nwF"/>
+                            <constraint firstItem="Pjh-XP-iQe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="yi2-hL-H8i"/>
+                            <constraint firstItem="Pjh-XP-iQe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="z3r-tS-bRd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,9 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ChatGPT Image 1 abr 2026, 08_29_12 a.m. 1" width="1024" height="1536"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="ecoJanco" width="635" height="393"/>
     </resources>
 </document>
