@@ -26,12 +26,18 @@
 		852BC4A82F86F58500BD5410 /* SuportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC4A72F86F58500BD5410 /* SuportViewController.swift */; };
 		852BC4AA2F86F59500BD5410 /* SuportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC4A92F86F59500BD5410 /* SuportTableViewCell.swift */; };
 		8571E7E22F9ACE760049897D /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8571E7E12F9ACE760049897D /* InicioViewController.swift */; };
+		8572FA172F9F3E9A001250C1 /* RutaRecomendada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */; };
+		8572FA1B2F9F4891001250C1 /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572FA1A2F9F4891001250C1 /* TourCell.swift */; };
 		8577C4D62F9C32CB00920A1E /* NoticiasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D52F9C32CB00920A1E /* NoticiasTableViewCell.swift */; };
 		8577C4D82F9C32F600920A1E /* NoticiasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D72F9C32F600920A1E /* NoticiasViewController.swift */; };
 		8577C4DA2F9C3DA000920A1E /* Noticia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D92F9C3DA000920A1E /* Noticia.swift */; };
 		8577C4DD2F9C512F00920A1E /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4DC2F9C512F00920A1E /* Producto.swift */; };
 		8577C4DF2F9C514900920A1E /* CarritoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4DE2F9C514900920A1E /* CarritoManager.swift */; };
 		8577C4E22F9C519200920A1E /* PerfilUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4E12F9C519200920A1E /* PerfilUsuarioViewController.swift */; };
+		858745712F9EAADB003156BA /* TiendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858745702F9EAADB003156BA /* TiendaViewController.swift */; };
+		858745732F9EAAFA003156BA /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858745722F9EAAFA003156BA /* TiendaTableViewCell.swift */; };
+		858745752F9EAB11003156BA /* ProductoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858745742F9EAB11003156BA /* ProductoCollectionViewCell.swift */; };
+		858745782F9EB602003156BA /* JunkooModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 858745762F9EB602003156BA /* JunkooModel.xcdatamodeld */; };
 		85D188C52F987643003B9549 /* RecuperarPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D188C42F987643003B9549 /* RecuperarPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,12 +79,18 @@
 		852BC4A72F86F58500BD5410 /* SuportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuportViewController.swift; sourceTree = "<group>"; };
 		852BC4A92F86F59500BD5410 /* SuportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuportTableViewCell.swift; sourceTree = "<group>"; };
 		8571E7E12F9ACE760049897D /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
+		8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaRecomendada.swift; sourceTree = "<group>"; };
+		8572FA1A2F9F4891001250C1 /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		8577C4D52F9C32CB00920A1E /* NoticiasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasTableViewCell.swift; sourceTree = "<group>"; };
 		8577C4D72F9C32F600920A1E /* NoticiasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasViewController.swift; sourceTree = "<group>"; };
 		8577C4D92F9C3DA000920A1E /* Noticia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticia.swift; sourceTree = "<group>"; };
 		8577C4DC2F9C512F00920A1E /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		8577C4DE2F9C514900920A1E /* CarritoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarritoManager.swift; sourceTree = "<group>"; };
 		8577C4E12F9C519200920A1E /* PerfilUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilUsuarioViewController.swift; sourceTree = "<group>"; };
+		858745702F9EAADB003156BA /* TiendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaViewController.swift; sourceTree = "<group>"; };
+		858745722F9EAAFA003156BA /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
+		858745742F9EAB11003156BA /* ProductoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCollectionViewCell.swift; sourceTree = "<group>"; };
+		858745772F9EB602003156BA /* JunkooModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JunkooModel.xcdatamodel; sourceTree = "<group>"; };
 		85D188C42F987643003B9549 /* RecuperarPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperarPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +159,7 @@
 				8521BAD82F7D476D00A76CC8 /* LaunchScreen.storyboard */,
 				8521BADB2F7D476D00A76CC8 /* Info.plist */,
 				85256B832F9131D9006BCB97 /* GoogleService-Info.plist */,
+				858745762F9EB602003156BA /* JunkooModel.xcdatamodeld */,
 			);
 			path = Causa;
 			sourceTree = "<group>";
@@ -195,6 +208,15 @@
 			name = Soporte;
 			sourceTree = "<group>";
 		};
+		8572FA152F9F3E88001250C1 /* Rutas */ = {
+			isa = PBXGroup;
+			children = (
+				8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */,
+				8572FA1A2F9F4891001250C1 /* TourCell.swift */,
+			);
+			name = Rutas;
+			sourceTree = "<group>";
+		};
 		8577C4D42F9C323400920A1E /* Noticias */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +249,9 @@
 		8577C4E32F9C523600920A1E /* Tienda */ = {
 			isa = PBXGroup;
 			children = (
+				858745702F9EAADB003156BA /* TiendaViewController.swift */,
+				858745722F9EAAFA003156BA /* TiendaTableViewCell.swift */,
+				858745742F9EAB11003156BA /* ProductoCollectionViewCell.swift */,
 			);
 			name = Tienda;
 			sourceTree = "<group>";
@@ -234,6 +259,7 @@
 		85836B602F9AABD0008478E9 /* inicio Main */ = {
 			isa = PBXGroup;
 			children = (
+				8572FA152F9F3E88001250C1 /* Rutas */,
 				8571E7E12F9ACE760049897D /* InicioViewController.swift */,
 			);
 			name = "inicio Main";
@@ -387,10 +413,16 @@
 				8571E7E22F9ACE760049897D /* InicioViewController.swift in Sources */,
 				8577C4DA2F9C3DA000920A1E /* Noticia.swift in Sources */,
 				8577C4D82F9C32F600920A1E /* NoticiasViewController.swift in Sources */,
+				858745732F9EAAFA003156BA /* TiendaTableViewCell.swift in Sources */,
+				858745712F9EAADB003156BA /* TiendaViewController.swift in Sources */,
 				852BC4A62F86F57300BD5410 /* Suport.swift in Sources */,
+				8572FA172F9F3E9A001250C1 /* RutaRecomendada.swift in Sources */,
+				858745752F9EAB11003156BA /* ProductoCollectionViewCell.swift in Sources */,
 				852BC4AA2F86F59500BD5410 /* SuportTableViewCell.swift in Sources */,
 				8577C4DD2F9C512F00920A1E /* Producto.swift in Sources */,
+				8572FA1B2F9F4891001250C1 /* TourCell.swift in Sources */,
 				8521BAD22F7D476B00A76CC8 /* ViewController.swift in Sources */,
+				858745782F9EB602003156BA /* JunkooModel.xcdatamodeld in Sources */,
 				85256B8A2F913A27006BCB97 /* LoginViewController.swift in Sources */,
 				85256B882F9136DB006BCB97 /* RegistroViewController.swift in Sources */,
 				8521BACE2F7D476B00A76CC8 /* AppDelegate.swift in Sources */,
@@ -778,6 +810,20 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		858745762F9EB602003156BA /* JunkooModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				858745772F9EB602003156BA /* JunkooModel.xcdatamodel */,
+			);
+			currentVersion = 858745772F9EB602003156BA /* JunkooModel.xcdatamodel */;
+			name = JunkooModel.xcdatamodeld;
+			path = /Users/pi6u89/Documents/YuntaPedidos01/Causa/JunkooModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8521BAC22F7D476B00A76CC8 /* Project object */;
 }

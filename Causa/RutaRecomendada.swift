@@ -1,8 +1,7 @@
-//
-//  RutaRecomendada.swift
-//  Causa
-//
-//  Created by Pi6u89 on 27/04/26.
-//
-
-import Foundation
+struct RutaRecomendada {
+    let titulo: String
+    let distancia: String
+    let calorias: String
+    let nombreImagen: String
+    let destino: String
+}

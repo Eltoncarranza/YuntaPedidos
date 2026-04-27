@@ -2,138 +2,118 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class PerfilUsuarioViewController: UIViewController {
+class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    // MARK: - Outlets
     @IBOutlet weak var imgPerfilUsuario: UIImageView!
     @IBOutlet weak var lblNombreUsuario: UILabel!
     @IBOutlet weak var vistaTarjetaCarrito: UIView!
     @IBOutlet weak var lblTotalCarrito: UILabel!
-    @IBOutlet weak var stackCarrito: UIStackView!
+    @IBOutlet weak var tablaCarrito: UITableView!
     
     let db = Firestore.firestore()
+    var productosEnCarrito: [Producto] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurarDiseno()
         obtenerNombreDeFirebase()
         
-        CarritoManager.shared.agregarProducto(Producto(id: "1", nombre: "Janko Urbana", precio: 2800.0, nombreImagen: "foto_ruta"))
-        CarritoManager.shared.agregarProducto(Producto(id: "2", nombre: "Candado Bambú", precio: 80.0, nombreImagen: "foto_bambu"))
+        tablaCarrito.dataSource = self
+        tablaCarrito.delegate = self
+        tablaCarrito.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        actualizarPantallaCarrito()
+        cargarDatosYActualizar()
     }
     
+    func cargarDatosYActualizar() {
+        productosEnCarrito = CarritoManager.shared.obtenerProductos()
+        let total = CarritoManager.shared.calcularTotal()
+        lblTotalCarrito.text = String(format: "Total: S/ %.2f", total)
+        tablaCarrito.reloadData()
+    }
+
+    // MARK: - Firebase Logic
     func obtenerNombreDeFirebase() {
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             self.lblNombreUsuario.text = "Invitado"
             return
         }
-        
         db.collection("usuarios").document(uid).getDocument { (document, error) in
             if let doc = document, doc.exists {
                 let nombre = doc.data()?["nombre"] as? String ?? "Usuario Janko"
-                DispatchQueue.main.async {
-                    self.lblNombreUsuario.text = nombre
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.lblNombreUsuario.text = "Usuario Janko"
-                }
+                DispatchQueue.main.async { self.lblNombreUsuario.text = nombre }
             }
         }
     }
-    
-    @IBAction func btnCerrarSesion(_ sender: Any) {
-        let alerta = UIAlertController(
-            title: "Cerrar sesión",
-            message: "¿Estás seguro que quieres salir?",
-            preferredStyle: .alert
-        )
+
+    // MARK: - TableView Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if productosEnCarrito.isEmpty {
+            let label = UILabel()
+            label.text = "Tu carrito está vacío 🛒"
+            label.textAlignment = .center
+            label.textColor = .gray
+            tableView.backgroundView = label
+            return 0
+        }
+        tableView.backgroundView = nil
+        return productosEnCarrito.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CeldaCarrito", for: indexPath)
+        let producto = productosEnCarrito[indexPath.row]
         
-        alerta.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
-        
-        alerta.addAction(UIAlertAction(title: "Salir", style: .destructive) { _ in
-            do {
-                try Auth.auth().signOut()
+        cell.textLabel?.text = "🚲 \(producto.nombre)"
+        cell.detailTextLabel?.text = String(format: "S/ %.2f", producto.precio)
+        cell.selectionStyle = .none
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let producto = productosEnCarrito[indexPath.row]
+            CarritoManager.shared.eliminarProducto(nombre: producto.nombre)
+            cargarDatosYActualizar()
+        }
+    }
+
+    // MARK: - Acciones
+    @IBAction func btnFinalizarCompra(_ sender: UIButton) {
+        if !productosEnCarrito.isEmpty {
+            let alerta = UIAlertController(title: "¡Pedido Recibido!", message: "Tu orden de YuntaPedidos está en camino.", preferredStyle: .alert)
+            alerta.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
                 CarritoManager.shared.vaciarCarrito()
-                UserDefaults.standard.set(false, forKey: "isLogin")
-                self.irAlLogin()
-            } catch {
-                print("Error al cerrar sesión: \(error.localizedDescription)")
-            }
+                self.cargarDatosYActualizar()
+            })
+            present(alerta, animated: true)
+        }
+    }
+
+    @IBAction func btnCerrarSesion(_ sender: Any) {
+        let alerta = UIAlertController(title: "Cerrar sesión", message: "¿Deseas salir?", preferredStyle: .alert)
+        alerta.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+        alerta.addAction(UIAlertAction(title: "Salir", style: .destructive) { _ in
+            try? Auth.auth().signOut()
+            CarritoManager.shared.vaciarCarrito()
+            self.dismiss(animated: true)
         })
-        
         present(alerta, animated: true)
     }
 
-    func irAlLogin() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "InitialVC")
-        loginVC.modalPresentationStyle = .fullScreen
-        self.present(loginVC, animated: true)
-    }
-    
-    func actualizarPantallaCarrito() {
-        for view in stackCarrito.arrangedSubviews {
-            view.removeFromSuperview()
-        }
-        
-        let productosEnCarrito = CarritoManager.shared.listaDeCompras
-        
-        if productosEnCarrito.isEmpty {
-            lblTotalCarrito.text = "Total: S/ 0.00"
-            let lblVacio = UILabel()
-            lblVacio.text = "Tu carrito está vacío 🛒"
-            lblVacio.textAlignment = .center
-            lblVacio.textColor = .gray
-            stackCarrito.addArrangedSubview(lblVacio)
-        } else {
-            let total = CarritoManager.shared.calcularTotal()
-            lblTotalCarrito.text = String(format: "Total: S/ %.2f", total)
-            for producto in productosEnCarrito {
-                let vistaProducto = crearFilaDeProducto(nombre: producto.nombre, precio: producto.precio)
-                stackCarrito.addArrangedSubview(vistaProducto)
-            }
-        }
-    }
-    
-    func crearFilaDeProducto(nombre: String, precio: Double) -> UIView {
-        let fila = UIStackView()
-        fila.axis = .horizontal
-        fila.distribution = .equalSpacing
-        
-        let lblNombre = UILabel()
-        lblNombre.text = "🚲 \(nombre)"
-        lblNombre.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        
-        let lblPrecio = UILabel()
-        lblPrecio.text = String(format: "S/ %.2f", precio)
-        lblPrecio.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        
-        fila.addArrangedSubview(lblNombre)
-        fila.addArrangedSubview(lblPrecio)
-        
-        return fila
-    }
-    
     func configurarDiseno() {
-      
-        imgPerfilUsuario.image = UIImage(systemName: "person.circle.fill")
-        imgPerfilUsuario.tintColor = UIColor(red: 0.2, green: 0.4, blue: 0.2, alpha: 1.0)
-        imgPerfilUsuario.contentMode = .scaleAspectFit
+        
         imgPerfilUsuario.layer.cornerRadius = imgPerfilUsuario.frame.height / 2
-        imgPerfilUsuario.clipsToBounds = true
-        imgPerfilUsuario.layer.borderWidth = 3
-        imgPerfilUsuario.layer.borderColor = UIColor(red: 0.2, green: 0.4, blue: 0.2, alpha: 1.0).cgColor
+                imgPerfilUsuario.clipsToBounds = true
+                imgPerfilUsuario.layer.borderWidth = 3
+                imgPerfilUsuario.layer.borderColor = UIColor(red: 0.2, green: 0.4, blue: 0.2, alpha: 1.0).cgColor // Verde Janko
         
         vistaTarjetaCarrito.layer.cornerRadius = 15
-        vistaTarjetaCarrito.layer.shadowColor = UIColor.black.cgColor
-        vistaTarjetaCarrito.layer.shadowOpacity = 0.05
-        vistaTarjetaCarrito.layer.shadowOffset = CGSize(width: 0, height: 4)
-        vistaTarjetaCarrito.layer.shadowRadius = 8
+        vistaTarjetaCarrito.layer.shadowOpacity = 0.1
+        vistaTarjetaCarrito.layer.shadowRadius = 10
     }
 }
