@@ -1,23 +1,42 @@
-//
-//  RutasTableViewCell.swift
-//  Causa
-//
-//  Created by Pi6u89 on 27/04/26.
-//
-
 import UIKit
 
-class RutasTableViewCell: UITableViewCell {
+class RutasTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    @IBOutlet weak var collectionViewRutas: UICollectionView!
+    
+    var listaRutas: [RutaRecomendada] = []
+    
+    var accionAbrirMapa: ((String) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        collectionViewRutas.delegate = self
+        collectionViewRutas.dataSource = self
+        collectionViewRutas.showsHorizontalScrollIndicator = false
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configurar(rutas: [RutaRecomendada]) {
+        self.listaRutas = rutas
+        collectionViewRutas.reloadData()
     }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listaRutas.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let celda = collectionView.dequeueReusableCell(withReuseIdentifier: "TourCell", for: indexPath) as! TourCell
+        
+        let ruta = listaRutas[indexPath.item]
+        celda.configurar(con: ruta)
+        
+        celda.accionVerRuta = { [weak self] in
+            self?.accionAbrirMapa?(ruta.destino)
+        }
+        
+        return celda
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 160, height: 230)
+    }
 }

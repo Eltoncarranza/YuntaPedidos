@@ -27,7 +27,6 @@
 		852BC4AA2F86F59500BD5410 /* SuportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC4A92F86F59500BD5410 /* SuportTableViewCell.swift */; };
 		8571E7E22F9ACE760049897D /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8571E7E12F9ACE760049897D /* InicioViewController.swift */; };
 		8572FA172F9F3E9A001250C1 /* RutaRecomendada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */; };
-		8572FA1B2F9F4891001250C1 /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572FA1A2F9F4891001250C1 /* TourCell.swift */; };
 		8577C4D62F9C32CB00920A1E /* NoticiasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D52F9C32CB00920A1E /* NoticiasTableViewCell.swift */; };
 		8577C4D82F9C32F600920A1E /* NoticiasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D72F9C32F600920A1E /* NoticiasViewController.swift */; };
 		8577C4DA2F9C3DA000920A1E /* Noticia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8577C4D92F9C3DA000920A1E /* Noticia.swift */; };
@@ -38,6 +37,8 @@
 		858745732F9EAAFA003156BA /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858745722F9EAAFA003156BA /* TiendaTableViewCell.swift */; };
 		858745752F9EAB11003156BA /* ProductoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858745742F9EAB11003156BA /* ProductoCollectionViewCell.swift */; };
 		858745782F9EB602003156BA /* JunkooModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 858745762F9EB602003156BA /* JunkooModel.xcdatamodeld */; };
+		8588A1292F9F551C0077B95D /* RutasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588A1282F9F551C0077B95D /* RutasTableViewCell.swift */; };
+		8588A12F2F9F5CDB0077B95D /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588A12E2F9F5CDB0077B95D /* TourCell.swift */; };
 		85D188C52F987643003B9549 /* RecuperarPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D188C42F987643003B9549 /* RecuperarPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +81,6 @@
 		852BC4A92F86F59500BD5410 /* SuportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuportTableViewCell.swift; sourceTree = "<group>"; };
 		8571E7E12F9ACE760049897D /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
 		8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaRecomendada.swift; sourceTree = "<group>"; };
-		8572FA1A2F9F4891001250C1 /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		8577C4D52F9C32CB00920A1E /* NoticiasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasTableViewCell.swift; sourceTree = "<group>"; };
 		8577C4D72F9C32F600920A1E /* NoticiasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasViewController.swift; sourceTree = "<group>"; };
 		8577C4D92F9C3DA000920A1E /* Noticia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noticia.swift; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		858745722F9EAAFA003156BA /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
 		858745742F9EAB11003156BA /* ProductoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCollectionViewCell.swift; sourceTree = "<group>"; };
 		858745772F9EB602003156BA /* JunkooModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JunkooModel.xcdatamodel; sourceTree = "<group>"; };
+		8588A1282F9F551C0077B95D /* RutasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasTableViewCell.swift; sourceTree = "<group>"; };
+		8588A12E2F9F5CDB0077B95D /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		85D188C42F987643003B9549 /* RecuperarPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperarPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,7 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				8572FA162F9F3E9A001250C1 /* RutaRecomendada.swift */,
-				8572FA1A2F9F4891001250C1 /* TourCell.swift */,
+				8588A1282F9F551C0077B95D /* RutasTableViewCell.swift */,
+				8588A12E2F9F5CDB0077B95D /* TourCell.swift */,
 			);
 			name = Rutas;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				8577C4E22F9C519200920A1E /* PerfilUsuarioViewController.swift in Sources */,
 				85D188C52F987643003B9549 /* RecuperarPasswordViewController.swift in Sources */,
 				8571E7E22F9ACE760049897D /* InicioViewController.swift in Sources */,
+				8588A12F2F9F5CDB0077B95D /* TourCell.swift in Sources */,
 				8577C4DA2F9C3DA000920A1E /* Noticia.swift in Sources */,
 				8577C4D82F9C32F600920A1E /* NoticiasViewController.swift in Sources */,
 				858745732F9EAAFA003156BA /* TiendaTableViewCell.swift in Sources */,
@@ -420,10 +424,10 @@
 				858745752F9EAB11003156BA /* ProductoCollectionViewCell.swift in Sources */,
 				852BC4AA2F86F59500BD5410 /* SuportTableViewCell.swift in Sources */,
 				8577C4DD2F9C512F00920A1E /* Producto.swift in Sources */,
-				8572FA1B2F9F4891001250C1 /* TourCell.swift in Sources */,
 				8521BAD22F7D476B00A76CC8 /* ViewController.swift in Sources */,
 				858745782F9EB602003156BA /* JunkooModel.xcdatamodeld in Sources */,
 				85256B8A2F913A27006BCB97 /* LoginViewController.swift in Sources */,
+				8588A1292F9F551C0077B95D /* RutasTableViewCell.swift in Sources */,
 				85256B882F9136DB006BCB97 /* RegistroViewController.swift in Sources */,
 				8521BACE2F7D476B00A76CC8 /* AppDelegate.swift in Sources */,
 				8521BAD02F7D476B00A76CC8 /* SceneDelegate.swift in Sources */,

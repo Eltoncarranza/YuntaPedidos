@@ -4,7 +4,6 @@ import FirebaseFirestore
 
 class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    // MARK: - Outlets
     @IBOutlet weak var imgPerfilUsuario: UIImageView!
     @IBOutlet weak var lblNombreUsuario: UILabel!
     @IBOutlet weak var vistaTarjetaCarrito: UIView!
@@ -36,7 +35,6 @@ class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITa
         tablaCarrito.reloadData()
     }
 
-    // MARK: - Firebase Logic
     func obtenerNombreDeFirebase() {
         guard let uid = Auth.auth().currentUser?.uid else {
             self.lblNombreUsuario.text = "Invitado"
@@ -50,7 +48,6 @@ class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
 
-    // MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if productosEnCarrito.isEmpty {
             let label = UILabel()
@@ -82,7 +79,6 @@ class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
 
-    // MARK: - Acciones
     @IBAction func btnFinalizarCompra(_ sender: UIButton) {
         if !productosEnCarrito.isEmpty {
             let alerta = UIAlertController(title: "¡Pedido Recibido!", message: "Tu orden de YuntaPedidos está en camino.", preferredStyle: .alert)
@@ -95,13 +91,32 @@ class PerfilUsuarioViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     @IBAction func btnCerrarSesion(_ sender: Any) {
-        let alerta = UIAlertController(title: "Cerrar sesión", message: "¿Deseas salir?", preferredStyle: .alert)
+        let alerta = UIAlertController(title: "Cerrar sesión", message: "¿Deseas salir de la aplicación?", preferredStyle: .alert)
+        
         alerta.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+        
         alerta.addAction(UIAlertAction(title: "Salir", style: .destructive) { _ in
-            try? Auth.auth().signOut()
-            CarritoManager.shared.vaciarCarrito()
-            self.dismiss(animated: true)
+            
+            do {
+                try Auth.auth().signOut()
+                CarritoManager.shared.vaciarCarrito()
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "InitialVC")
+                
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let sceneDelegate = windowScene.delegate as? SceneDelegate,
+                   let window = sceneDelegate.window {
+                    
+                    window.rootViewController = loginVC
+                    UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                }
+                
+            } catch let signOutError as NSError {
+                print("Error al cerrar sesión: %@", signOutError)
+            }
         })
+        
         present(alerta, animated: true)
     }
 
